@@ -1,0 +1,8 @@
+*** Server: 
+     - cd server 
+     - node app.js 
+
+
+*** Client: 
+     - cd client 
+     - npm start 
