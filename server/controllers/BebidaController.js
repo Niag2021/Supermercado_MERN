@@ -48,3 +48,20 @@ export const crearBebida = async (req, res) => {
         res.json({ message: error.message })
     }
 }
+
+//Actualizar un registro. 
+export const actualizarBebida = async (req, res) => {
+    //Try catch es para manejar que si ocurre algun error, no se caera el servidor. 
+    try {
+        //Actualiza el registro que coincide con el id correspondiente. 
+        await BebidaModel.update(req.body, {
+            where: { id: req.params.id }
+        })
+        res.json({
+            "message": "Registro actualizado correctamente.!"
+        })
+    } catch (error) {
+        //En caso de error mostrara un mensaje indicando el error. 
+        res.json({ message: error.message })
+    }
+}
