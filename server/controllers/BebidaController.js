@@ -65,3 +65,21 @@ export const actualizarBebida = async (req, res) => {
         res.json({ message: error.message })
     }
 }
+
+//Eliminar un registro. 
+export const eliminarBebida = async (req, res) => {
+    //Try catch es para manejar que si ocurre algun error, no se caera el servidor. 
+    try {
+        //Elimina el registro que coincide con el id correspondiente. 
+        await BebidaModel.destroy({
+            where: { id: req.params.id }
+        })
+        //Mensaje que muesta por pantalla. 
+        res.json({
+            "message": "Registro eliminado correctamente.!"
+        })
+    } catch (error) {
+        //En caso de error mostrara un mensaje indicando el error. 
+        res.json({ message: error.message })
+    }
+}
