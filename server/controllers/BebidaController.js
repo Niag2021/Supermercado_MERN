@@ -35,3 +35,16 @@ export const obtenerBebida = async (req, res) => {
     }
 }
 
+//Crear un registro. 
+export const crearBebida = async (req, res) => {
+    //Try catch es para manejar que si ocurre algun error, no se caera el servidor. 
+    try {
+        //Crea el nuevo registro. 
+        await BebidaModel.create(req.body)
+        //Responde con el siguiente mensaje en formato JSON. 
+        res.json({ "message": "Registro creado correctamente.!" })
+    } catch (error) {
+        //En caso de error mostrara un mensaje indicando el error. 
+        res.json({ message: error.message })
+    }
+}
